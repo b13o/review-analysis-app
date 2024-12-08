@@ -61,7 +61,7 @@ export default function useAISummaryLogic() {
 
   const handleClick = async () => {
     const result = await model.generateContent(prompt);
-    alert(result.response.text());
+    // alert(result.response.text());
     const jsonData = JSON.parse(result.response.text());
     setAISummary(jsonData);
   };
