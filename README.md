@@ -1,50 +1,60 @@
-# React + TypeScript + Vite
+<img width="1440" alt="ai-review-summary" src="https://github.com/user-attachments/assets/4a3e2707-ca4e-4d69-92c3-ff88e910276f" />
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+# レビュー掲載アプリ
 
-Currently, two official plugins are available:
+## 概要
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+このプロジェクトでは、レビュー掲載アプリを構築します。
+レビューの一覧を表示するだけでなく、アプリ内に生成 AI を組み込み、全てのレビューを踏まえた要約を表示します。
 
-## Expanding the ESLint configuration
+## 学習目標
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+shadcn/ui による、デザインシステムの導入と、柔軟に拡張を学習します。
 
-- Configure the top-level `parserOptions` property like this:
+shadcn/ui によって書き込まれるソースコードから、モダンなコンポーネントの実装パターンを確認してください。
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+### 推奨技術
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+このプロジェクトの難易度と趣旨を踏まえて、以下の使用をお勧めします。
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
+- shadcn/ui を用いた UI の実装
+- Gemini API による AI の活用
+- vite を用いた React 環境構築
+- TypeScript による型チェック
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+---
+
+## 🎯 お題
+
+- 「ユーザーストーリー」を全て満たす、アプリを構築してください。
+- 必要に応じて、スクリーンショットやデモサイトの URL を、参照してください。
+- なお、スタイルは、あなた自身で独自にカスタマイズすることが可能です。
+
+### 必須機能
+
+1. **レビューの一覧を表示**:
+   - サイト上時に、レビューの一覧を表示する。
+2. **レビューの要約を表示**:
+   - 全てのレビューを踏まえた、分析結果を取得して表示する。
+
+### 追加情報
+
+今回推奨する API は、「[**Gemini API**](https://ai.google.dev/pricing?hl=ja#1_5flash)」です。
+
+- この API は、Google が開発した、生成モデルに API 経由でアクセスできます。
+- Google アカウントと、アクセスキーの発行が必要です。
+- （12/8 時点）テストや hobby 利用の場合、クレジットの登録なしで無料で利用できます。
+
+**注意**：
+
+- API キーのような機密情報をブラウザから送るのは、リスクがあります。
+- なので、ブラウザからの API アクセスは、開発時のテストでのみ使用することをお勧めします。
+- もし、アプリを公開する際は、ダミーのデータを使用することをお勧めします。
+- GitHub 上で管理する際は、環境変数が含まれてないことを、ご確認ください。
+
+## ユーザーストーリー
+
+- [ ] ユーザーがサイトにアクセスすると、画面右側にレビューの一覧が表示されている
+- [ ] 画面右側のみ、縦方向にスクロールすることができる
+- [ ] 画面左側に、AI によるレビューの要約が表示されている
+- [ ] タブを切り替えることで、AI による分析（高評価・低評価のポイント）のリストを確認できる
